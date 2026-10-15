@@ -1,7 +1,7 @@
 ### 自己部署到部署的坑：
 需要改：docker-entrypoint.sh，参考：https://chat.deepseek.com/a/chat/s/c6c134e5-0363-45c5-8c4a-91c7f305bb01   ，已经改过了。config.json我们通过render的环境变量写入，
-通过github链接部署的redner应用，一旦仓库代码有改动，那么render会重新部署，那么应用的地址也会发生变化。
 参考链接的内容即可。
+通过github链接部署的redner应用，一旦仓库代码有改动，那么render会重新部署，那么应用的地址也会发生变化。
 config.json配置如下：
 ```
 {
