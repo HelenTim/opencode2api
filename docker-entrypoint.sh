@@ -1,11 +1,13 @@
 #!/bin/sh
 set -e
 
-# 如果配置环境变量存在，则写入 config.json
 if [ -n "$CONFIG_JSON_CONTENT" ]; then
-    echo "$CONFIG_JSON_CONTENT" > /app/config.json
-    echo "Wrote config.json from environment variable"
+    echo "$CONFIG_JSON_CONTENT" > /var/lib/opencode2api/config.json
+    echo "Wrote config.json to /var/lib/opencode2api"
 fi
+
+# 启动时显式指定配置路径
+exec opencode2api -config /var/lib/opencode2api/config.json
 
 set -eu
 
