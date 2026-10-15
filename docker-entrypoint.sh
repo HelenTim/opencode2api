@@ -1,4 +1,12 @@
 #!/bin/sh
+set -e
+
+# 将 Render Secret File 复制到程序读取的位置
+if [ -f /etc/secrets/config.json ]; then
+    cp /etc/secrets/config.json /app/config.json
+    echo "Copied config.json from /etc/secrets to /app"
+fi
+
 set -eu
 
 state_dir=${STATE_DIR:-/var/lib/opencode2api}
