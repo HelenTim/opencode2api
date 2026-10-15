@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-# 将 Render Secret File 复制到程序读取的位置
-if [ -f /etc/secrets/config.json ]; then
-    cp /etc/secrets/config.json /app/config.json
-    echo "Copied config.json from /etc/secrets to /app"
+# 如果配置环境变量存在，则写入 config.json
+if [ -n "$CONFIG_JSON_CONTENT" ]; then
+    echo "$CONFIG_JSON_CONTENT" > /app/config.json
+    echo "Wrote config.json from environment variable"
 fi
 
 set -eu
